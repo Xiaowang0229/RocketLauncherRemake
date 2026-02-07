@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="200"
+        x:Class="RocketLauncherRemake.InputWindow"
+		
+        Title="InputWindow">
+	<Grid Margin="10">
+		<TextBlock Text="请输入所需的内容" FontWeight="Bold" FontSize="24"/>
+		
+		<TextBox x:Name="RootTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="18"/>
+		
+		<Button Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="确定" Height="36" Width="120"/>
+	</Grid>
+</Window>

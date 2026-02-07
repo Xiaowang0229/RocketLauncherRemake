@@ -1,0 +1,41 @@
+<wnd:AppWindow xmlns="https://github.com/avaloniaui"
+			   xmlns:wnd="using:FluentAvalonia.UI.Windowing"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RocketLauncherRemake.MainWindow"
+	    
+	    xmlns:ui="using:FluentAvalonia.UI.Controls"
+        Loaded="MainWindow_Loaded"
+			   MinHeight="450" MinWidth="800"
+		xmlns:ic="using:FluentIcons.Avalonia.Fluent"
+			   
+        Title="RocketLauncher">
+	<Grid>
+		<ui:NavigationView IsBackButtonVisible="false" CompactPaneLength="64" IsSettingsVisible="False" IsBackEnabled="False" ExpandedModeThresholdWidth="21474836" x:Name="RootNavi">
+			<ui:NavigationView.FooterMenuItems>
+				<ui:NavigationViewItem Content="设置">
+					<ui:NavigationViewItem.IconSource>
+						<ic:FluentIconSource Icon="Settings"/>
+					</ui:NavigationViewItem.IconSource>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem Content="关于">
+					<ui:NavigationViewItem.IconSource>
+						<ic:FluentIconSource Icon="Info"/>
+					</ui:NavigationViewItem.IconSource>
+				</ui:NavigationViewItem>
+			</ui:NavigationView.FooterMenuItems>
+			<ui:NavigationView.Content>
+				<ui:Frame x:Name="RootFrame"/>
+			</ui:NavigationView.Content>
+		</ui:NavigationView>
+		<Grid x:Name="Tip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsVisible="False">
+			<Border Background="#80FFFFFF" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+				<ui:ProgressRing Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock Text="正在配置文件,请稍候..." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</wnd:AppWindow>
