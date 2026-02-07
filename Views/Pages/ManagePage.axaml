@@ -4,5 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.ManagePage">
-  Welcome to Avalonia!
+	<StackPanel Margin="10">
+		<TextBlock Text="管理" FontWeight="Bold" FontSize="36"/>
+		<Grid  Margin="5">
+			<TextBlock Text="要管理的游戏:" VerticalAlignment="Center"/>
+			<DropDownButton HorizontalContentAlignment="Left" Margin="100,0,0,0" HorizontalAlignment="Stretch"/>
+		</Grid>
+	</StackPanel>
 </UserControl>

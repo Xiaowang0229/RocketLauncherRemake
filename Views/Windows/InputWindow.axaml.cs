@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using Avalonia.Interactivity;
 using FluentAvalonia.UI.Windowing;
 
@@ -13,7 +12,7 @@ public partial class InputWindow : AppWindow
         this.Title = Title;
     }
 
-    private void Button_Click(object sender,RoutedEventArgs e)
+    private void Button_Click(object sender, RoutedEventArgs e)
     {
         this.Close($"{RootTextBox.Text}");
     }

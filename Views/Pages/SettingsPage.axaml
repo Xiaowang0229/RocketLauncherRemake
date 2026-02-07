@@ -4,5 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.SettingsPage">
-  Welcome to Avalonia!
+	<StackPanel Margin="10">
+		<TextBlock Text="设置" Margin="5" FontSize="36" FontWeight="Bold"/>
+		<StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+			<TextBlock Text="游戏设置:" VerticalAlignment="Center" />
+			
+			<Button Content="导入游戏" Width="120" Margin="5,0,0,0"/>
+
+			<Button Content="管理游戏" Width="120" Margin="5,0,0,0"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+			<TextBlock Text="启动时检测更新:" VerticalAlignment="Center" Margin="0,1,0,0" />
+			<ToggleSwitch x:Name="StartUpCheckUpdateToggle" VerticalAlignment="Center" Margin="5,0,0,0"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+			<TextBlock Text="游戏启动时自动隐藏窗口:" VerticalAlignment="Center" Margin="0,1,0,0" />
+			<ToggleSwitch x:Name="HideMainWindowLaunchGame" VerticalAlignment="Center" Margin="5,0,0,0"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+			<TextBlock Text="配置项操作:" VerticalAlignment="Center" />
+			<Button Content="恢复默认配置" Foreground="Red" Width="120" Margin="5,0,0,0"/>
+		</StackPanel>
+    </StackPanel>
 </UserControl>

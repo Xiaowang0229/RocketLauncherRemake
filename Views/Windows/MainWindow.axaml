@@ -10,10 +10,11 @@
         Loaded="MainWindow_Loaded"
 			   MinHeight="450" MinWidth="800"
 		xmlns:ic="using:FluentIcons.Avalonia.Fluent"
-			   
+			   ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="PreferSystemChrome"
         Title="RocketLauncher">
 	<Grid>
-		<ui:NavigationView IsBackButtonVisible="false" CompactPaneLength="64" IsSettingsVisible="False" IsBackEnabled="False" ExpandedModeThresholdWidth="21474836" x:Name="RootNavi">
+		<ui:NavigationView x:Name="RootNavi" IsBackButtonVisible="false" SelectionChanged="RootNavi_SelectionChanged" CompactPaneLength="64" IsSettingsVisible="False" IsBackEnabled="False" ExpandedModeThresholdWidth="21474836">
 			<ui:NavigationView.FooterMenuItems>
 				<ui:NavigationViewItem Content="设置">
 					<ui:NavigationViewItem.IconSource>
