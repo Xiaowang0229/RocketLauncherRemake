@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace RocketLauncherRemake.Utils
     {
         public static string VersionLog;
         public static string EULAString;
+        public static string BackgroundPath = $"{Environment.CurrentDirectory}\\Background";
     }
     public static class FileHelper
     {

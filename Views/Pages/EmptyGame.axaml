@@ -7,7 +7,7 @@
 	<Grid>
 		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 			<TextBlock Text="您还没有导入任何一个游戏,请先导入一个游戏再进行操作!"/>
-			<Button Margin="0,5,0,0" HorizontalAlignment="Center" Content="导入" Width="140"/>
+			<Button Click="Import_Click" Margin="0,5,0,0" HorizontalAlignment="Center" Content="导入" Width="140"/>
 		</StackPanel>
 	</Grid>
 </UserControl>

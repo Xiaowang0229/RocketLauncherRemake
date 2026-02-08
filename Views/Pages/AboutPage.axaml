@@ -4,71 +4,156 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ui="using:FluentAvalonia.UI.Controls"
 			 xmlns:local="clr-namespace:RocketLauncherRemake.Utils;assembly=RocketLauncherRemake"
+			 xmlns:ic="using:FluentIcons.Avalonia.Fluent"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.AboutPage">
-	<StackPanel Margin="10">
-		<TextBlock Text="关于" Margin="5" FontSize="36" FontWeight="Bold"/>
-		<Expander CornerRadius="5">
-			<Expander.Header>
-				<StackPanel Margin="10" HorizontalAlignment="Left" Orientation="Horizontal">
-					<Image Height="32" Width="32">
-						<Image.Source>
-							<DrawingImage>
-								<DrawingImage.Drawing>
-									<DrawingGroup>
+	<ScrollViewer>
+		<StackPanel Margin="10">
+			<TextBlock Text="关于" Margin="5" FontSize="36" FontWeight="Bold"/>
+			<ui:SettingsExpander>
+				<ui:SettingsExpander.Header>
+					<StackPanel Margin="10,0,0,0" HorizontalAlignment="Left" Orientation="Horizontal">
+						<Image Height="32" Width="32">
+							<Image.Source>
+								<DrawingImage>
+									<DrawingImage.Drawing>
 										<DrawingGroup>
-											<DrawingGroup.ClipGeometry>
-												<RectangleGeometry Rect="0,0,256,256" />
-											</DrawingGroup.ClipGeometry>
 											<DrawingGroup>
+												<DrawingGroup.ClipGeometry>
+													<RectangleGeometry Rect="0,0,256,256" />
+												</DrawingGroup.ClipGeometry>
 												<DrawingGroup>
-													<DrawingGroup.ClipGeometry>
-														<RectangleGeometry RadiusX="60" RadiusY="60" Rect="0,0,256,256" />
-													</DrawingGroup.ClipGeometry>
-													<GeometryDrawing Brush="#FFD33847">
-														<GeometryDrawing.Geometry>
+													<DrawingGroup>
+														<DrawingGroup.ClipGeometry>
 															<RectangleGeometry RadiusX="60" RadiusY="60" Rect="0,0,256,256" />
-														</GeometryDrawing.Geometry>
-													</GeometryDrawing>
-													<DrawingGroup>
-														<GeometryDrawing Brush="#FFFFFFFF">
+														</DrawingGroup.ClipGeometry>
+														<GeometryDrawing Brush="#FFD33847">
 															<GeometryDrawing.Geometry>
-																<PathGeometry FillRule="EvenOdd" Figures="M60.167,154.5C60.472,160.761,62.322,166.466,65.701,171.398L55.217,181.48C54.109,182.643,55.012,183.605,56.312,184.976L65.392,194.488C66.646,195.876,67.493,196.739,68.65,195.606L80.023,184.703C82.756,185.952,89.281,188.297,98.952,187.788L106.161,182.818A17,17,0,0,1,108.273,181.609L114.817,178.544 109.693,183.518C109.203,183.994,108.363,184.686,107.829,185.058L101.63,189.33 114.076,220.63A2.37,2.37,0,0,0,115.518,221.997C115.836,222.101 116.163,222.125 116.47,222.069 116.777,222.013 117.053,221.876 117.275,221.673L141.821,199.447C142.107,199.188,142.291,198.831,142.345,198.427L146.534,166.463C153.257,161.016 160.017,154.575 166.639,147.314 204.752,105.508 209.031,70.398 208.193,53.194 207.916,47.526 207.08,44.339 207.048,44.206A2.36,2.36,0,0,0,206.44,43.162A2.3,2.3,0,0,0,205.404,42.556C203.382,42.018 155.2,30.024 96.022,86.756 95.948,86.836 88.274,94.463 80.144,105.412L48.623,111.314A1.6,1.6,0,0,0,47.682,111.859L26.29,137.217C26.097,137.447 25.971,137.731 25.923,138.044 25.875,138.357 25.908,138.686 26.018,139.006 26.127,139.325 26.31,139.623 26.55,139.873 26.79,140.123 27.08,140.317 27.394,140.438L58.377,152.305 63.227,146.834A17,17,0,0,1,64.959,145.195L70.457,140.787 66.704,146.816A16,16,0,0,1,65.274,148.742z M124.362,94.228C133.968,85.012 148.266,84.383 156.296,92.832 164.331,101.281 163.054,115.596 153.445,124.816 143.839,134.032 129.545,134.656 121.511,126.211 113.476,117.762 114.757,103.444 124.362,94.228" />
+																<RectangleGeometry RadiusX="60" RadiusY="60" Rect="0,0,256,256" />
 															</GeometryDrawing.Geometry>
 														</GeometryDrawing>
-													</DrawingGroup>
-													<DrawingGroup>
-														<GeometryDrawing>
-															<GeometryDrawing.Brush>
-																<LinearGradientBrush StartPoint="108.994,138.249" EndPoint="157.274,92.474"  SpreadMethod="Pad" Opacity="0.1">
-																	<GradientStop Color="#FF000000" Offset="0" />
-																	<GradientStop Color="#FFFFFFFF" Offset="1" />
-																</LinearGradientBrush>
-															</GeometryDrawing.Brush>
-															<GeometryDrawing.Geometry>
-																<PathGeometry FillRule="EvenOdd" Figures="M124.303,94.334C133.909,85.114 148.207,84.49 156.237,92.939 164.272,101.388 162.995,115.702 153.385,124.918 143.78,134.139 129.486,134.763 121.452,126.314 113.417,117.865 114.698,103.551 124.303,94.334" />
-															</GeometryDrawing.Geometry>
-														</GeometryDrawing>
+														<DrawingGroup>
+															<GeometryDrawing Brush="#FFFFFFFF">
+																<GeometryDrawing.Geometry>
+																	<PathGeometry FillRule="EvenOdd" Figures="M60.167,154.5C60.472,160.761,62.322,166.466,65.701,171.398L55.217,181.48C54.109,182.643,55.012,183.605,56.312,184.976L65.392,194.488C66.646,195.876,67.493,196.739,68.65,195.606L80.023,184.703C82.756,185.952,89.281,188.297,98.952,187.788L106.161,182.818A17,17,0,0,1,108.273,181.609L114.817,178.544 109.693,183.518C109.203,183.994,108.363,184.686,107.829,185.058L101.63,189.33 114.076,220.63A2.37,2.37,0,0,0,115.518,221.997C115.836,222.101 116.163,222.125 116.47,222.069 116.777,222.013 117.053,221.876 117.275,221.673L141.821,199.447C142.107,199.188,142.291,198.831,142.345,198.427L146.534,166.463C153.257,161.016 160.017,154.575 166.639,147.314 204.752,105.508 209.031,70.398 208.193,53.194 207.916,47.526 207.08,44.339 207.048,44.206A2.36,2.36,0,0,0,206.44,43.162A2.3,2.3,0,0,0,205.404,42.556C203.382,42.018 155.2,30.024 96.022,86.756 95.948,86.836 88.274,94.463 80.144,105.412L48.623,111.314A1.6,1.6,0,0,0,47.682,111.859L26.29,137.217C26.097,137.447 25.971,137.731 25.923,138.044 25.875,138.357 25.908,138.686 26.018,139.006 26.127,139.325 26.31,139.623 26.55,139.873 26.79,140.123 27.08,140.317 27.394,140.438L58.377,152.305 63.227,146.834A17,17,0,0,1,64.959,145.195L70.457,140.787 66.704,146.816A16,16,0,0,1,65.274,148.742z M124.362,94.228C133.968,85.012 148.266,84.383 156.296,92.832 164.331,101.281 163.054,115.596 153.445,124.816 143.839,134.032 129.545,134.656 121.511,126.211 113.476,117.762 114.757,103.444 124.362,94.228" />
+																</GeometryDrawing.Geometry>
+															</GeometryDrawing>
+														</DrawingGroup>
+														<DrawingGroup>
+															<GeometryDrawing>
+																<GeometryDrawing.Brush>
+																	<LinearGradientBrush StartPoint="108.994,138.249" EndPoint="157.274,92.474"  SpreadMethod="Pad" Opacity="0.1">
+																		<GradientStop Color="#FF000000" Offset="0" />
+																		<GradientStop Color="#FFFFFFFF" Offset="1" />
+																	</LinearGradientBrush>
+																</GeometryDrawing.Brush>
+																<GeometryDrawing.Geometry>
+																	<PathGeometry FillRule="EvenOdd" Figures="M124.303,94.334C133.909,85.114 148.207,84.49 156.237,92.939 164.272,101.388 162.995,115.702 153.385,124.918 143.78,134.139 129.486,134.763 121.452,126.314 113.417,117.865 114.698,103.551 124.303,94.334" />
+																</GeometryDrawing.Geometry>
+															</GeometryDrawing>
+														</DrawingGroup>
 													</DrawingGroup>
 												</DrawingGroup>
 											</DrawingGroup>
 										</DrawingGroup>
-									</DrawingGroup>
-								</DrawingImage.Drawing>
-							</DrawingImage>
-						</Image.Source>
-					</Image>
-					<StackPanel Margin="20,7.5,7.5,7.5">
-						<TextBlock  Text="Rocket Launcher" FontSize="18" FontFamily="Microsoft YaHei UI" FontWeight="Bold" Margin="1"/>
-						<TextBlock  Text="{x:Static local:Variables.ShowVersion}" FontSize="12"  Foreground="Gray" FontFamily="Microsoft YaHei UI" Margin="1,-1,1,1"/>
+									</DrawingImage.Drawing>
+								</DrawingImage>
+							</Image.Source>
+						</Image>
+						<StackPanel Margin="20,2.5,2.5,2.5">
+							<TextBlock  Text="Rocket Launcher" FontSize="20" FontFamily="Microsoft YaHei UI" FontWeight="Bold" Margin="1"/>
+							<TextBlock  Text="©Xiaowang Software. 保留所有权利" FontSize="13"  Foreground="Gray" FontFamily="Microsoft YaHei UI" Margin="1,-1,1,1"/>
+						</StackPanel>
 					</StackPanel>
+				</ui:SettingsExpander.Header>
+
+				<StackPanel Margin="5">
+					<Grid Margin="0,0,0,5">
+						<TextBlock Text="{x:Static local:Variables.ShowVersion}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+						<Button Width="120" Click="ChkUpd_Click" Content="检测更新" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+					</Grid>
+
 				</StackPanel>
-			</Expander.Header>
-			<Expander.Content>
+
+			</ui:SettingsExpander>
+			<ui:SettingsExpander Margin="0,5,0,0">
+				<ui:SettingsExpander.Header>
+					<Grid>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<ic:FluentIcon Icon="Share" Height="32" Width="32" FontSize="32" Margin="10"/>
+							<TextBlock Text="访问 Github 仓库" VerticalAlignment="Center" Margin="10,0,0,0" />
+						</StackPanel>
+
+					</Grid>
+
+				</ui:SettingsExpander.Header>
+				<StackPanel Margin="5">
+					<Grid Margin="5">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<TextBlock Text="访问本仓库" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+							<HyperlinkButton Content="https://github.com/Xiaowang0229/RocketLauncherRemake" x:Name="RepoLink" Click="RepoUrl_Click"/>
+						</StackPanel>
+					</Grid>
+					<Separator/>
+					<Grid Margin="5">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<TextBlock Text="上报漏洞信息" VerticalAlignment="Center"/>
+						</StackPanel>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+							<HyperlinkButton Content="https://github.com/Xiaowang0229/RocketLauncherRemake/issues" x:Name="IssueLink" Click="IssueUrl_Click"/>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</ui:SettingsExpander>
+
+			<ui:SettingsExpander Margin="0,5,0,0">
+				<ui:SettingsExpander.Header>
+					<Grid>
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+							<ic:FluentIcon Icon="Info" Height="32" Width="32" FontSize="32" Margin="10"/>
+							<TextBlock Text="本程序所使用的第三方库" VerticalAlignment="Center" Margin="10,0,0,0" />
+						</StackPanel>
+
+					</Grid>
+
+				</ui:SettingsExpander.Header>
+				<StackPanel Margin="5">
+					<HyperlinkButton Content="Avalonia" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
+					<HyperlinkButton Content="Avalonia.Desktop" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
+					<HyperlinkButton Content="Avalonia.Diagnostics" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
+					<HyperlinkButton Content="Avalonia.Fonts.Inter" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
+					<HyperlinkButton Content="Avalonia.Themes.Fluent" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
+					<HyperlinkButton Content="FFME.Avalonia" Click="Url_Click" Tag="https://github.com/4gsim/ffmediaelement"/>
+					<HyperlinkButton Content="FluentAvaloniaUI (本程序所使用的UI)" Click="Url_Click" Tag="https://github.com/amwx/FluentAvalonia"/>
+					<HyperlinkButton Content="FluentIcons.Avalonia.Fluent" Click="Url_Click" Tag="https://github.com/davidxuang/FluentIcons"/>
+					<HyperlinkButton Content="Hardcodet.Notifyicon.Wpf" Click="Url_Click" Tag="https://github.com/hardcodet/wpf-notifyicon"/>
+					<HyperlinkButton Content="Markdig" Click="Url_Click" Tag="https://github.com/xoofx/markdig"/>
+					<HyperlinkButton Content="Microsoft.Toolkit.Uwp.Notifications" Click="Url_Click" Tag="https://github.com/CommunityToolkit/WindowsCommunityToolkit/tree/main/Microsoft.Toolkit.Uwp.Notifications"/>
+					<HyperlinkButton Content="Ookii.Dialogs.Wpf" Click="Url_Click" Tag="https://github.com/ookii-dialogs/ookii-dialogs-wpf"/>
+					<HyperlinkButton Content="System.Drawing.Common" Click="Url_Click" Tag="https://github.com/dotnet/dotnet"/>
+				</StackPanel>
+			</ui:SettingsExpander>
+
+		<ui:SettingsExpander Margin="0,5,0,0">
+			<ui:SettingsExpander.Header>
 				<Grid>
-					
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+						<ic:FluentIcon Icon="PeopleCommunity" Height="32" Width="32" FontSize="32" Margin="10"/>
+						<TextBlock Text="鸣谢名单" VerticalAlignment="Center" Margin="10,0,0,0" />
+					</StackPanel>
+
 				</Grid>
-			</Expander.Content>
-		</Expander>
-	</StackPanel>
+
+			</ui:SettingsExpander.Header>
+			<StackPanel Margin="5" Orientation="Horizontal">
+				<HyperlinkButton Content="Xiaowang0229" Click="Url_Click" Tag="https://github.com/Xiaowang0229"/>
+				<HyperlinkButton Content="IsHuaMouRen" Click="Url_Click" Tag="https://github.com/IsHuaMouRen"/>
+				
+			</StackPanel>
+		</ui:SettingsExpander>
+		</StackPanel>
+	</ScrollViewer>
 </UserControl>

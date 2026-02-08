@@ -34,7 +34,7 @@ namespace RocketLauncherRemake.Utils
             }
         }
 
-        public async static Task<bool> ShowMessageAsync(this AppWindow owner, string Title, string Content)
+        public async static Task<bool> ShowMessageAsync(this AppWindow owner, string Title, object Content)
         {
             var dialog = new ContentDialog
             {

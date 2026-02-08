@@ -1,4 +1,5 @@
 ﻿using Avalonia.Media;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace RocketLauncherRemake.Utils
@@ -23,6 +24,15 @@ namespace RocketLauncherRemake.Utils
                 }
             }
             return color.ToString();
+        }
+
+        public static void OpenBrowser(string url)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute =true
+            });return;
         }
     }
 }

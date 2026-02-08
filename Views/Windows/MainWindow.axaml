@@ -18,12 +18,12 @@
 			<ui:NavigationView.FooterMenuItems>
 				<ui:NavigationViewItem Content="设置">
 					<ui:NavigationViewItem.IconSource>
-						<ic:FluentIconSource Icon="Settings"/>
+						<ic:FluentIconSource Icon="Settings" FontSize="32"/>
 					</ui:NavigationViewItem.IconSource>
 				</ui:NavigationViewItem>
 				<ui:NavigationViewItem Content="关于">
 					<ui:NavigationViewItem.IconSource>
-						<ic:FluentIconSource Icon="Info"/>
+						<ic:FluentIconSource Icon="Info" FontSize="32"/>
 					</ui:NavigationViewItem.IconSource>
 				</ui:NavigationViewItem>
 			</ui:NavigationView.FooterMenuItems>
@@ -32,7 +32,7 @@
 			</ui:NavigationView.Content>
 		</ui:NavigationView>
 		<Grid x:Name="Tip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsVisible="False">
-			<Border Background="#80FFFFFF" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+			<Border  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 				<ui:ProgressRing Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 				<TextBlock Text="正在配置文件,请稍候..." HorizontalAlignment="Center" VerticalAlignment="Center"/>

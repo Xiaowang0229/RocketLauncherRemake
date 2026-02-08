@@ -2,13 +2,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:ui="using:FluentAvalonia.UI.Controls"
+			 xmlns:ic="using:FluentIcons.Avalonia.Fluent"
+			 Loaded="Page_Loaded"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.ImportPage">
-	<StackPanel Margin="10">
-		<TextBlock Text="导入" FontWeight="Bold" FontSize="36"/>
-		<StackPanel Margin="10" Orientation="Horizontal">
-			<Image x:Name="RootImage" Height="96" Width="96" />
-			
-		</StackPanel>
-	</StackPanel>
+	<ScrollViewer>
+		<Grid>
+			<StackPanel Margin="10">
+				<TextBlock x:Name="RootTitle" Text="导入" FontWeight="Bold" FontSize="36"/>
+
+				<ui:SettingsExpander Margin="0,5,0,0">
+					<ui:SettingsExpander.Header>
+						<StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+							<Image x:Name="RootImage" Height="32" Width="32" Margin="5"/>
+							<TextBlock VerticalAlignment="Center" Margin="5" Text="必填项目" FontSize="14" FontWeight="Bold"/>
+						</StackPanel>
+					</ui:SettingsExpander.Header>
+					<StackPanel Margin="5">
+						<Grid>
+							<TextBlock Text="启动路径" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button Click="LaunchPath_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+								<TextBlock IsVisible="False" x:Name="LaunchPath" Text="已选中文件:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+							</StackPanel>
+						</Grid>
+						<Separator/>
+						<Grid>
+							<TextBlock  Text="程序名" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<TextBox TextChanged="ProgramName_TextChanged" x:Name="ProgramName" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+						</Grid>
+						<Separator/>
+						<Grid>
+							<TextBlock Text="标题文本" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<TextBox TextChanged="TitleContent_TextChanged" x:Name="TitleContent" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+						</Grid>
+					</StackPanel>
+				</ui:SettingsExpander>
+				<ui:SettingsExpander Margin="0,5,0,0">
+					<ui:SettingsExpander.Header>
+						<StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+							<ic:FluentIcon Icon="Info" FontSize="32" Margin="5"/>
+							<TextBlock  VerticalAlignment="Center" Margin="5" Text="选填项目" FontSize="14" />
+						</StackPanel>
+					</ui:SettingsExpander.Header>
+					<StackPanel>
+						<Grid>
+							<TextBlock Text="标题字体" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<Button Click="Font_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+						</Grid>
+						<Separator/>
+						<Grid>
+							<TextBlock Text="启动参数" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<TextBox TextChanged="LaunchArgs_TextChanged" x:Name="LaunchArgs" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+						</Grid>
+						<Separator/>
+						<Grid>
+							<TextBlock Text="游戏自定义图标" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button Click="CostumIcons_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+								<TextBlock x:Name="CostumIcons" IsVisible="False"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+							</StackPanel>
+						</Grid>
+						<Separator/>
+						<Grid>
+							<TextBlock Text="背景图片/背景视频" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button Click="Background_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+								<TextBlock x:Name="BackgroundPath" IsVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+							</StackPanel>
+						</Grid>
+					</StackPanel>
+				</ui:SettingsExpander>
+			</StackPanel>
+			<Border Background="{DynamicResource ThemeControlHighBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20">
+			<StackPanel Orientation="Horizontal"  >
+				<Button Content="取消" Click="Cancel_Click" Width="120" Margin="5,0,0,0"/>
+				<Button Content="确定" Click="OK_Click" Width="120" Margin="5,0,0,0"/>
+			</StackPanel>
+				</Border>
+
+		</Grid>
+	</ScrollViewer>
 </UserControl>

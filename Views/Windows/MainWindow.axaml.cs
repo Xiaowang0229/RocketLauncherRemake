@@ -7,7 +7,7 @@ namespace RocketLauncherRemake
 {
     public partial class MainWindow : AppWindow
     {
-
+        MainConfig config = JsonConfig.ReadConfig();
         public MainWindow()
         {
             InitializeComponent();
@@ -21,10 +21,14 @@ namespace RocketLauncherRemake
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            /*for(int i = 0;i<=;i++)
+            if(config.GameInfos.Count == 0)
             {
-
-            }*/
+                RootFrame.Navigate(typeof(EmptyGame));
+            }
+            else
+            {
+                RootFrame.Navigate(typeof(LaunchPage));
+            }
         }
 
         private void RootNavi_SelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)

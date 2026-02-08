@@ -10,7 +10,7 @@ namespace RocketLauncherRemake.Utils
 {
     public static partial class Variables
     {
-        public static string Version = "4.0.0-Alpha.1";
+        public static string Version = "4.0.0-Alpha.3";
         public static string ShowVersion = $"版本:{Version}";
         public static CancellationTokenSource UpdateCTS = new CancellationTokenSource();
     }

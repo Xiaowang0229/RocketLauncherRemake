@@ -126,5 +126,24 @@ namespace RocketLauncherRemake.Utils
             return await Task.Run(() => new Avalonia.Media.Imaging.Bitmap(filePath));
         }
 
+        public static void ConvertToPngAndSave(byte[] imageBytes, string savePath)
+        {
+            if (imageBytes == null || imageBytes.Length == 0)
+                return;
+
+            try
+            {
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                using (Image image = Image.FromStream(ms))
+                {
+                    image.Save(savePath, ImageFormat.Png);
+                }
+                return;
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
     }
 }

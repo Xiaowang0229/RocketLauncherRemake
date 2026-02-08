@@ -1,4 +1,7 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using RocketLauncherRemake.Utils;
+using Button = Avalonia.Controls.Button;
 
 namespace RocketLauncherRemake;
 
@@ -7,5 +10,30 @@ public partial class AboutPage : UserControl
     public AboutPage()
     {
         InitializeComponent();
+    }
+
+    private void RepoUrl_Click(object sender,RoutedEventArgs e)
+    {
+        Others.OpenBrowser(RepoLink.Content.ToString());
+    }
+    private void IssueUrl_Click(object sender, RoutedEventArgs e)
+    {
+        Others.OpenBrowser(IssueLink.Content.ToString());
+    }
+    private void Url_Click(object sender, RoutedEventArgs e)
+    {
+        HyperlinkButton s = (HyperlinkButton)sender;
+        Others.OpenBrowser(s.Tag.ToString());
+    }
+
+    private async void ChkUpd_Click(object sender,RoutedEventArgs e)
+    {
+        if(sender is Button btn)
+        {
+            btn.IsEnabled = false;
+            await Update.CheckUpdate(true, true);
+            btn.IsEnabled = true;
+        }
+        
     }
 }

@@ -5,6 +5,7 @@ using FluentAvalonia.UI.Windowing;
 using Ookii.Dialogs.Wpf;
 using RocketLauncherRemake.Utils;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace RocketLauncherRemake
 
         public override void OnFrameworkInitializationCompleted()
         {
+            
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
 
@@ -35,17 +38,24 @@ namespace RocketLauncherRemake
 
         private AppWindow OnLaunch()
         {
-
-            RegisterGlobalExceptionHandlers();
-            if (!File.Exists(Variables.Configpath))
+            if (!File.Exists($"{Environment.CurrentDirectory}\\Config.json"))
             {
-                JsonConfig.InitalizeConfig(true);
+                var config2 = new MainConfig
+                {
+                    Username = "Administrator",
+                    StartUpCheckUpdate = true,
+                    LaunchWithMinize = true,
+                    GameInfos = new List<LaunchConfig>()
+                };
+                Json.WriteJson($"{Environment.CurrentDirectory}\\Config.json", config2);
             }
             else
             {
                 Variables.config = Json.ReadJson<MainConfig>(Variables.Configpath);
             }
-            Library.FFmpegDirectory = Environment.CurrentDirectory + "\\FFmpeg";
+            RegisterGlobalExceptionHandlers();
+
+            Library.FFmpegDirectory = $"{Environment.CurrentDirectory}\\FFmpeg";
             Library.LoadFFmpeg();
             Variables.VersionLog = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.LocalLog.md");
             Variables.EULAString = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.EULA.md");
@@ -280,7 +290,7 @@ namespace RocketLauncherRemake
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://github.com/Xiaowang0229/MultiGameLauncher/issues/new?template=%F0%9F%94%B4%E6%BC%8F%E6%B4%9E.md",
+                FileName = "https://github.com/Xiaowang0229/RocketLauncherRemake/issues/new",
                 UseShellExecute = true
             });
         }

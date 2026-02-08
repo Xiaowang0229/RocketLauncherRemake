@@ -11,10 +11,14 @@ public partial class SettingsPage : UserControl
     public SettingsPage()
     {
         InitializeComponent();
+        
+    }
+    private void Page_Loaded(object sender,RoutedEventArgs e)
+    {
+        config = JsonConfig.ReadConfig();
         LaunchWithMinize.IsChecked = config.LaunchWithMinize;
         StartUpCheckUpdate.IsChecked = config.StartUpCheckUpdate;
     }
-
     private void StartUpCheckUpdate_Toggled(object sender, RoutedEventArgs e)
     {
 
@@ -63,6 +67,13 @@ public partial class SettingsPage : UserControl
 
     private void ManageGame_Click(object sender, RoutedEventArgs e)
     {
-        Variables._MainWindow.RootFrame.Navigate(typeof(ManagePage));
+        if (config.GameInfos.Count == 0)
+        {
+            Variables._MainWindow.RootFrame.Navigate(typeof(EmptyGame));
+        }
+        else
+        {
+            Variables._MainWindow.RootFrame.Navigate(typeof(ManagePage));
+        }
     }
 }

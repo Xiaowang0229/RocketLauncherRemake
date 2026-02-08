@@ -6,9 +6,9 @@ namespace RocketLauncherRemake.Utils
 {
     public static partial class Variables
     {
-        public readonly static string Configpath = Environment.CurrentDirectory + @"\Config.json";
+        public readonly static string Configpath = $"{Environment.CurrentDirectory}\\Config.json";
 
-        public static MainConfig config;
+        public static MainConfig config ;
     }
     public static class JsonConfig
     {

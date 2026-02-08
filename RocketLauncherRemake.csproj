@@ -10,11 +10,39 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="EULA.md" />
+    <None Remove="FFmpeg\avcodec-61.dll" />
+    <None Remove="FFmpeg\avdevice-61.dll" />
+    <None Remove="FFmpeg\avfilter-10.dll" />
+    <None Remove="FFmpeg\avformat-61.dll" />
+    <None Remove="FFmpeg\avutil-59.dll" />
+    <None Remove="FFmpeg\swresample-5.dll" />
+    <None Remove="FFmpeg\swscale-8.dll" />
     <None Remove="LocalLog.md" />
     <None Remove="UpdateAPI.exe" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="FFmpeg\avcodec-61.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\avdevice-61.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\avfilter-10.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\avformat-61.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\avutil-59.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\swresample-5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFmpeg\swscale-8.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="UpdateAPI.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
