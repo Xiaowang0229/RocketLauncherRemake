@@ -45,12 +45,12 @@ namespace RocketLauncherRemake
             {
                 Variables.config = Json.ReadJson<MainConfig>(Variables.Configpath);
             }
-                Library.FFmpegDirectory = Environment.CurrentDirectory + "\\FFmpeg";
+            Library.FFmpegDirectory = Environment.CurrentDirectory + "\\FFmpeg";
             Library.LoadFFmpeg();
             Variables.VersionLog = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.LocalLog.md");
             Variables.EULAString = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.EULA.md");
 
-            
+
             var config = Json.ReadJson<MainConfig>(Variables.Configpath);
 
             //¶ÁÈ¡Âß¼­

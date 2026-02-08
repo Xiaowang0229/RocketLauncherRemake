@@ -17,9 +17,7 @@ namespace RocketLauncherRemake.Utils
             var config = new MainConfig
             {
                 Username = "Administrator",
-                AutoStartUp = false,
                 StartUpCheckUpdate = true,
-                ChangeThemeWithSystem = false,
                 LaunchWithMinize = true,
                 GameInfos = new List<LaunchConfig>()
             };
@@ -61,12 +59,6 @@ namespace RocketLauncherRemake.Utils
 
         //自动更新
         public bool StartUpCheckUpdate { get; set; }
-
-        //开机自启
-        public bool AutoStartUp { get; set; }
-
-        //主题跟随系统
-        public bool ChangeThemeWithSystem { get; set; }
 
         //游戏配置项，勿动
         public List<LaunchConfig> GameInfos { get; set; }

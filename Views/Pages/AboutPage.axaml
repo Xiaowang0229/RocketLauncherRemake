@@ -65,7 +65,9 @@
 				</StackPanel>
 			</Expander.Header>
 			<Expander.Content>
-				
+				<Grid>
+					
+				</Grid>
 			</Expander.Content>
 		</Expander>
 	</StackPanel>

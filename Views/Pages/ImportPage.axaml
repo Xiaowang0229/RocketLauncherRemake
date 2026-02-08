@@ -4,7 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.ImportPage">
-	<Grid>
-		
-	</Grid>
+	<StackPanel Margin="10">
+		<TextBlock Text="导入" FontWeight="Bold" FontSize="36"/>
+		<StackPanel Margin="10" Orientation="Horizontal">
+			<Image x:Name="RootImage" Height="96" Width="96" />
+			
+		</StackPanel>
+	</StackPanel>
 </UserControl>

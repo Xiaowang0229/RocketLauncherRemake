@@ -8,7 +8,8 @@
 		<TextBlock Text="管理" FontWeight="Bold" FontSize="36"/>
 		<Grid  Margin="5">
 			<TextBlock Text="要管理的游戏:" VerticalAlignment="Center"/>
-			<DropDownButton HorizontalContentAlignment="Left" Margin="100,0,0,0" HorizontalAlignment="Stretch"/>
+			<DropDownButton Height="36" HorizontalContentAlignment="Left" Margin="100,0,0,0" HorizontalAlignment="Stretch"/>
 		</Grid>
+		
 	</StackPanel>
 </UserControl>
