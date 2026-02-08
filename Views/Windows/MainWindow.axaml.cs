@@ -33,6 +33,15 @@ namespace RocketLauncherRemake
 
         private void RootNavi_SelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
         {
+            for(int i = 0; i < RootNavi.MenuItems.Count;i++)
+            {
+                if(RootNavi.SelectedItem == RootNavi.MenuItems[i])
+                {
+                    Variables.CurrentGameIndex = i;
+                    RootFrame.Navigate(typeof(LaunchPage));
+                    break;
+                }
+            }
             if (RootNavi.SelectedItem == RootNavi.FooterMenuItems[0])
             {
                 RootFrame.Navigate(typeof(SettingsPage));

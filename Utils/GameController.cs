@@ -12,6 +12,7 @@ namespace RocketLauncherRemake.Utils
 {
     public static partial class Variables
     {
+        public static int CurrentGameIndex = 0;
         public static List<bool> GameProcessStatus = new List<bool>();
         public static List<Process> GameProcess = new List<Process>();
         public static List<DispatcherTimer> PlayingTimeRecorder = new List<DispatcherTimer>();
