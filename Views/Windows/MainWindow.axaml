@@ -32,7 +32,7 @@
 			</ui:NavigationView.Content>
 		</ui:NavigationView>
 		<Grid x:Name="Tip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsVisible="False">
-			<Border  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+			<Border Background="#80FFFFFF"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 				<ui:ProgressRing Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 				<TextBlock Text="正在配置文件,请稍候..." HorizontalAlignment="Center" VerticalAlignment="Center"/>

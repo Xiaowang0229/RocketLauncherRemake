@@ -13,6 +13,7 @@ public partial class ManagePage : UserControl
 {
     private LaunchConfig GameConfig = null;
     private MainConfig config;
+    private bool Validate = false;
     public ManagePage()
     {
         InitializeComponent();
@@ -37,6 +38,7 @@ public partial class ManagePage : UserControl
             rb.Click += (s, e) =>
             {
                 GameConfig = config.GameInfos[index];
+                Validate = true;
             };
             rbsp.Children.Add(rb);
         }
@@ -44,7 +46,7 @@ public partial class ManagePage : UserControl
 
         var result = await Variables._MainWindow.ShowMessageAsync("ÌבÊ¾", ct);
 
-        if(result == false || GameConfig == null)
+        if(result == false || Validate == false)
         {
             Page_Unloaded();
             Variables._MainWindow.RootFrame.Navigate(typeof(SettingsPage));

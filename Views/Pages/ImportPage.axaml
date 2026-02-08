@@ -23,19 +23,19 @@
 						<Grid>
 							<TextBlock Text="启动路径" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-								<Button Click="LaunchPath_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+								<Button Margin="5" Click="LaunchPath_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 								<TextBlock IsVisible="False" x:Name="LaunchPath" Text="已选中文件:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>
 						</Grid>
 						<Separator/>
 						<Grid>
 							<TextBlock  Text="程序名" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<TextBox TextChanged="ProgramName_TextChanged" x:Name="ProgramName" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+							<TextBox Margin="5" TextChanged="ProgramName_TextChanged" x:Name="ProgramName" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 						</Grid>
 						<Separator/>
 						<Grid>
 							<TextBlock Text="标题文本" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<TextBox TextChanged="TitleContent_TextChanged" x:Name="TitleContent" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+							<TextBox Margin="5" TextChanged="TitleContent_TextChanged" x:Name="TitleContent" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 						</Grid>
 					</StackPanel>
 				</ui:SettingsExpander>
@@ -43,44 +43,47 @@
 					<ui:SettingsExpander.Header>
 						<StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
 							<ic:FluentIcon Icon="Info" FontSize="32" Margin="5"/>
-							<TextBlock  VerticalAlignment="Center" Margin="5" Text="选填项目" FontSize="14" />
+							<TextBlock   VerticalAlignment="Center" Margin="5" Text="选填项目" FontSize="14" />
 						</StackPanel>
 					</ui:SettingsExpander.Header>
 					<StackPanel>
 						<Grid>
 							<TextBlock Text="标题字体" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<Button Click="Font_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+							<Button Margin="5" Click="Font_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 						</Grid>
 						<Separator/>
 						<Grid>
 							<TextBlock Text="启动参数" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<TextBox TextChanged="LaunchArgs_TextChanged" x:Name="LaunchArgs" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+							<TextBox Margin="5" TextChanged="LaunchArgs_TextChanged" x:Name="LaunchArgs" MinWidth="200" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 						</Grid>
 						<Separator/>
 						<Grid>
 							<TextBlock Text="游戏自定义图标" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="5">
 								<Button Click="CostumIcons_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-								<TextBlock x:Name="CostumIcons" IsVisible="False"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+								<TextBlock  x:Name="CostumIcons" IsVisible="False"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>
 						</Grid>
 						<Separator/>
 						<Grid>
 							<TextBlock Text="背景图片/背景视频" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="5">
 								<Button Click="Background_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 								<TextBlock x:Name="BackgroundPath" IsVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>
 						</Grid>
 					</StackPanel>
 				</ui:SettingsExpander>
+				<Grid>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20">
+						<Button Content="取消" Click="Cancel_Click" Width="120" Margin="5,0,0,0"/>
+						<Button Content="确定" Click="OK_Click" Width="120" Margin="5,0,0,0"/>
+					</StackPanel>
+				</Grid>
 			</StackPanel>
-			<Border Background="{DynamicResource ThemeControlHighBrush}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20">
-			<StackPanel Orientation="Horizontal"  >
-				<Button Content="取消" Click="Cancel_Click" Width="120" Margin="5,0,0,0"/>
-				<Button Content="确定" Click="OK_Click" Width="120" Margin="5,0,0,0"/>
-			</StackPanel>
-				</Border>
+			
+					
+					
 
 		</Grid>
 	</ScrollViewer>
