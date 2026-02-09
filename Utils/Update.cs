@@ -14,7 +14,7 @@ namespace RocketLauncherRemake.Utils
 {
     public static partial class Variables
     {
-        public static string Version = "4.0.0-RTM";
+        public static string Version = "4.0.0-Stable";
         public static string ShowVersion = $"版本:{Version}";
         public static CancellationTokenSource UpdateCTS = new CancellationTokenSource();
         public static int GameIndex;

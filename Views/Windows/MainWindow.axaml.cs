@@ -1,8 +1,10 @@
+using Avalonia.Animation;
 using Avalonia.Interactivity;
 using FluentAvalonia.UI.Controls;
 using FluentAvalonia.UI.Navigation;
 using FluentAvalonia.UI.Windowing;
 using RocketLauncherRemake.Utils;
+using System;
 using System.Threading.Tasks;
 
 
@@ -94,6 +96,18 @@ namespace RocketLauncherRemake
                     });
                 }
             }
+        }
+
+        public async void ShowInfoBar(string Title,string Message)
+        {
+            RootInfoBar.IsOpen = false;
+            await Task.Delay(TimeSpan.FromMilliseconds(500));
+            RootInfoBar.Title = Title;
+            RootInfoBar.Message = Message;
+            RootInfoBar.IsOpen = true;
+            
+            
+
         }
     }
 }

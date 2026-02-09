@@ -1,5 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -36,8 +35,7 @@ namespace RocketLauncherRemake.Utils
             }
             TaskBar.InitializeTaskBarContentMenu();
             Variables.PlayingTimeRecorder[index].Start();
-            var toast = new ToastContentBuilder().AddText("程序已启动").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"进程监测已开启").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
-            toast.Show();
+            
 
 
 
@@ -79,8 +77,8 @@ namespace RocketLauncherRemake.Utils
             config.GameInfos[index].GamePlayedMinutes = totaltime;
             Json.WriteJson(Variables.Configpath, config);
             
-                var toast0 = new ToastContentBuilder().AddText("程序已结束").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode} ").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
-                toast0.Show();
+                
+            Variables._MainWindow.ShowInfoBar("游戏已结束",$"程序名：{config.GameInfos[index].ShowName}\r\n游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode}");
 
 
 

@@ -16,7 +16,7 @@
 		<ffme:VideoPlayerControl IsVisible="False" Background="Transparent" x:Name="BackgroundVideo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowControls="False" Volume="0" AutoPlay="True" EnableKeyboardShortcuts="False" VideoStretch="UniformToFill" MediaEnded="Background_MediaEnded"/>
 		<Grid Margin="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 			<TextBlock x:Name="Title" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-			<Button Width="225" Tag="false" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="75" x:Name="LaunchTile" Click="NewLaunchTile_Click">
+			<Button Background="{DynamicResource SolidBackgroundFillColorBaseBrush}" Width="225" Tag="false" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="75" x:Name="LaunchTile" Click="NewLaunchTile_Click">
 				<Button.Content>
 					<StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
 						
