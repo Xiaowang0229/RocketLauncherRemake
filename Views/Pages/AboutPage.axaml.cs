@@ -15,16 +15,16 @@ public partial class AboutPage : UserControl
 
     private void RepoUrl_Click(object sender,RoutedEventArgs e)
     {
-        Others.OpenBrowser(RepoLink.Content.ToString());
+        Update.OpenBrowser(RepoLink.Content.ToString());
     }
     private void IssueUrl_Click(object sender, RoutedEventArgs e)
     {
-        Others.OpenBrowser(IssueLink.Content.ToString());
+        Update.OpenBrowser(IssueLink.Content.ToString());
     }
     private void Url_Click(object sender, RoutedEventArgs e)
     {
         HyperlinkButton s = (HyperlinkButton)sender;
-        Others.OpenBrowser(s.Tag.ToString());
+        Update.OpenBrowser(s.Tag.ToString());
     }
 
     private async void ChkUpd_Click(object sender,RoutedEventArgs e)

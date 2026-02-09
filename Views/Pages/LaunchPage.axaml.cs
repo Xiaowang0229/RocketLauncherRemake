@@ -27,10 +27,13 @@ public partial class LaunchPage : UserControl
     }
     public async void Page_Loaded(object sender,RoutedEventArgs e)
     {
+        BackgroundVideo.IsVisible = false;
+        BackgroundImage.IsVisible = false;
         config = JsonConfig.ReadConfig();
         GameIndex = Variables.GameIndex;
         var gi = config.GameInfos[GameIndex];
         Title.Text = gi.MainTitle;
+        Title.Foreground = config.GameInfos[GameIndex].MainTitleFontColor.ToAvaloniaBrush() ;
         ShowName.Text = $"µ±«∞”Œœ∑:{gi.ShowName}";
         if (File.Exists($"{Variables.BackgroundPath}\\{config.GameInfos[GameIndex].HashCode}\\Background.mp4"))
         {
@@ -50,8 +53,7 @@ public partial class LaunchPage : UserControl
             {
                 BackgroundVideo.Stop();
 
-                BackgroundVideo.IsVisible = false;
-                BackgroundImage.IsVisible = false;
+                
             }
             catch { }
         }

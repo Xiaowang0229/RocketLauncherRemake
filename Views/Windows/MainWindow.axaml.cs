@@ -16,7 +16,7 @@ namespace RocketLauncherRemake
             InitializeComponent();
             this.TitleBar.Height = 48;
             this.Icon = ImageIconHelper.ToAvaloniaImageSource(AppResource.ApplicationImage);
-
+            this.TitleBar.ExtendsContentIntoTitleBar = true;
 
 
 

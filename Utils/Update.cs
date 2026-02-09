@@ -14,7 +14,7 @@ namespace RocketLauncherRemake.Utils
 {
     public static partial class Variables
     {
-        public static string Version = "4.0.0-RC.1";
+        public static string Version = "4.0.0-RC.2";
         public static string ShowVersion = $"版本:{Version}";
         public static CancellationTokenSource UpdateCTS = new CancellationTokenSource();
         public static int GameIndex;
@@ -105,6 +105,15 @@ namespace RocketLauncherRemake.Utils
                 Variables._MainWindow.Tip.IsVisible = false;
             }
 
+        }
+
+        public static void OpenBrowser(string url)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            }); return;
         }
     }
 }
