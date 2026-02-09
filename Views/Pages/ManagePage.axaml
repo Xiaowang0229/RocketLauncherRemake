@@ -23,6 +23,7 @@
 						<Grid>
 							<TextBlock Text="启动路径" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button x:Name="UseAppIcon" Width="120" Margin="5" Content="使用程序图标" Click="UseAppIcon_Click"/>
 								<Button Margin="5" Click="LaunchPath_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 								<TextBlock IsVisible="False" x:Name="LaunchPath" Text="已选中文件:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>
@@ -60,6 +61,7 @@
 						<Grid>
 							<TextBlock Text="游戏自定义图标" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button x:Name="DelCostumIcon" Width="120" Content="恢复默认图标" Margin="5" Foreground="Red" Click="DelCostumIcon_Click"/>
 								<Button Margin="5" Click="CostumIcons_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 								<TextBlock  x:Name="CostumIcons" IsVisible="False" Text="已选中文件:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>
@@ -68,6 +70,7 @@
 						<Grid>
 							<TextBlock Text="背景图片/背景视频" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 							<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+								<Button Width="120" x:Name="DelBackground" IsVisible="False" Margin="5" Click="DelBackground_Click" Content="删除" Foreground="Red"/>
 								<Button Margin="5" Click="Background_Click" Content="浏览..." Width="120" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 								<TextBlock x:Name="BackgroundPath" IsVisible="False" Text="已选中文件:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
 							</StackPanel>

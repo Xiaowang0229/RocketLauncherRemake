@@ -23,11 +23,16 @@ public partial class ManagePage : UserControl
 
     private async void Page_Loaded(object sender, RoutedEventArgs e)
     {
+
+
         config =  JsonConfig.ReadConfig();
 
         var ct = new StackPanel { Margin = new Avalonia.Thickness(5) };
         ct.Children.Add(new TextBlock { Text="请选择要管理的项目:"});
         var rbsp = new StackPanel { Margin = new Avalonia.Thickness(5) };
+
+        DelCostumIcon.IsVisible = true;
+        UseAppIcon.IsVisible = true;
         for(int i = 0;i<config.GameInfos.Count;i++)
         {
             int index = i;
@@ -61,6 +66,15 @@ public partial class ManagePage : UserControl
             ProgramName.Text = GameConfig.ShowName;
             TitleContent.Text = GameConfig.MainTitle;
             LaunchArgs.Text = GameConfig.Arguments;
+
+            if(File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4") || File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.png"))
+            {
+                DelBackground.IsVisible = true;
+            }
+            else
+            {
+                DelBackground.IsVisible = false;
+            }
         }
         
     }
@@ -80,6 +94,14 @@ public partial class ManagePage : UserControl
                 Variables._MainWindow.Tip.IsVisible = true;
                 if (BackgroundPath.IsVisible)
                 {
+                    if (File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4"))
+                    {
+                        File.Delete($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4");
+                    }
+                    if (File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.png"))
+                    {
+                        File.Delete($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.png");
+                    }
                     if (Path.GetExtension(BackgroundPath.Text.Substring(6)) == ".mp4")
                     {
                         await FileHelper.CopyFileAsync(BackgroundPath.Text.Substring(6), $"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4");
@@ -91,7 +113,7 @@ public partial class ManagePage : UserControl
                 }
                 if (CostumIcons.IsVisible)
                 {
-                    await FileHelper.CopyFileAsync(BackgroundPath.Text.Substring(6), $"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Icon.png");
+                    await FileHelper.CopyFileAsync(CostumIcons.Text.Substring(6), $"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Icon.png");
                 }
                 else
                 {
@@ -116,6 +138,7 @@ public partial class ManagePage : UserControl
                 Variables.GameProcessStatus[HashCode.FindHashcodeinGameinfosint(config, GameConfig.HashCode)] = false;
                 Variables._MainWindow.Tip.IsVisible = false;
                 Page_Unloaded();
+                Variables._MainWindow.RefreshNavigationList();
                 Variables._MainWindow.RootFrame.Navigate(typeof(SettingsPage));
             }
         }
@@ -210,6 +233,23 @@ public partial class ManagePage : UserControl
         }
     }
 
+    private async void DelBackground_Click(object sender,RoutedEventArgs e)
+    {
+        if(await Variables._MainWindow.ShowMessageAsync("提示","请问是否删除背景? 此操作不可逆!"))
+        {
+            if(File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4"))
+            {
+                File.Delete($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.mp4");
+            }
+            if (File.Exists($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.png"))
+            {
+                File.Delete($"{Variables.BackgroundPath}\\{GameConfig.HashCode}\\Background.png");
+            }
+            Variables._MainWindow.ShowMessageAsync("提示", "背景已经恢复为默认");
+            DelBackground.IsVisible = false;
+        }
+    }
+
     private async void Background_Click(object sender, RoutedEventArgs e)
     {
         var dialog = new Microsoft.Win32.OpenFileDialog
@@ -226,6 +266,7 @@ public partial class ManagePage : UserControl
             //RootImage.Source = await ImageIconHelper.LoadFromFileAsync(dialog.FileName);
             //substring取6
         }
+
     }
 
     public void Page_Unloaded()
@@ -258,8 +299,36 @@ public partial class ManagePage : UserControl
                 Directory.Delete(Environment.CurrentDirectory + $"\\Backgrounds\\{GameConfig.HashCode}\\", true);
             }
             Page_Unloaded();
+            Variables._MainWindow.RefreshNavigationList();
             Variables._MainWindow.RootFrame.Navigate(typeof(SettingsPage));
         }
 
+    }
+
+    private async void DelCostumIcon_Click(object sender, RoutedEventArgs e)
+    {
+        if (await Variables._MainWindow.ShowMessageAsync("警告", "确定要恢复默认图标吗?此操作不可逆"))
+        {
+            if (File.Exists($"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png"))
+            {
+                File.Delete($"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png");
+            }
+            ImageIconHelper.ExtractAndSave256Icon(GameConfig.Launchpath, $"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png");
+            Variables._MainWindow.ShowMessageAsync("提示", "图标已经恢复为默认");
+            DelCostumIcon.IsVisible = false;
+        }
+    }
+
+    private async void UseAppIcon_Click(object sender, RoutedEventArgs e)
+    {
+        if (await Variables._MainWindow.ShowMessageAsync("警告", "确定要使用程序内的图标吗?此操作不可逆"))
+        {
+            if(File.Exists($"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png"))
+            {
+                File.Delete($"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png");
+            }
+            ImageIconHelper.ExtractAndSave256Icon(GameConfig.Launchpath, $"{Environment.CurrentDirectory}\\{GameConfig.HashCode}\\Icon.png");
+            UseAppIcon.IsVisible = false;
+        }
     }
 }

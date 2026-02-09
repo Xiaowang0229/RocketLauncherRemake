@@ -10,8 +10,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Threading;
-using Unosquare.FFME;
 using Xiaowang0229.JsonLibrary;
+
+
 
 
 namespace RocketLauncherRemake
@@ -55,8 +56,7 @@ namespace RocketLauncherRemake
             }
             RegisterGlobalExceptionHandlers();
 
-            Library.FFmpegDirectory = $"{Environment.CurrentDirectory}\\FFmpeg";
-            Library.LoadFFmpeg();
+            
             Variables.VersionLog = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.LocalLog.md");
             Variables.EULAString = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.EULA.md");
 

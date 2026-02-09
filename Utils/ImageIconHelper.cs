@@ -41,6 +41,7 @@ namespace RocketLauncherRemake.Utils
             if (string.IsNullOrWhiteSpace(exePath) || !File.Exists(exePath))
             {
                 // 文件不存在，直接用默认
+                System.Windows.MessageBox.Show("TTEWHNAHAIUKKSKJ");
                 return SaveDefaultIcon(defaultIconBytes, outputPngPath);
             }
 
@@ -54,7 +55,7 @@ namespace RocketLauncherRemake.Utils
 
                 if (icons == null || icons.Length == 0)
                 {
-                    throw new Exception("文件中没有找到任何图标");
+                    return SaveDefaultIcon(defaultIconBytes, outputPngPath);
                 }
 
                 // 优先找 256x256 的图标（宽度或高度为 256）

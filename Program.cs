@@ -1,4 +1,6 @@
 ﻿using Avalonia;
+using Avalonia.FFmpegVideoPlayer;
+using FFmpeg.AutoGen;
 using System;
 
 namespace RocketLauncherRemake
@@ -12,14 +14,20 @@ namespace RocketLauncherRemake
         [STAThread]
 
 
-        public static void Main(string[] args) => BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        public static void Main(string[] args)
+        {
+
+            FFmpegInitializer.Initialize();
+
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
 
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .WithInterFont()
-                .LogToTrace();
+                .WithInterFont();
+
     }
 }

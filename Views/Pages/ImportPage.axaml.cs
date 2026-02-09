@@ -95,6 +95,7 @@ public partial class ImportPage : UserControl
 
             Variables._MainWindow.Tip.IsVisible = false;
             Page_Unloaded();
+            Variables._MainWindow.RefreshNavigationList();
                 Variables._MainWindow.RootFrame.Navigate(typeof(SettingsPage));
                 
             

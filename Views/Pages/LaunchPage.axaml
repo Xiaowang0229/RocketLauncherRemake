@@ -2,12 +2,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:ui="using:FluentAvalonia.UI.Controls"
+			 xmlns:ic="using:FluentIcons.Avalonia.Fluent"
+			 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="RocketLauncherRemake.LaunchPage"
+
 			 Loaded="Page_Loaded"
+			 xmlns:ffme="clr-namespace:Avalonia.FFmpegVideoPlayer;assembly=Avalonia.FFmpegVideoPlayer"
 			 >
 	<Grid x:Name="RootGrid">
 		<Image  x:Name="BackgroundImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-		
+		<ffme:VideoPlayerControl IsVisible="False" Background="Transparent" x:Name="BackgroundVideo" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowControls="False" Volume="0" AutoPlay="True" EnableKeyboardShortcuts="False" VideoStretch="UniformToFill" MediaEnded="Background_MediaEnded"/>
+		<Grid Margin="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			<TextBlock x:Name="Title" FontWeight="Bold" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+			<Button Width="225" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="75">
+				<Button.Content>
+					<StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+						
+						<StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+							<ic:FluentIcon Icon="Games" FontSize="36" Margin="5" VerticalAlignment="Center"/>
+							<TextBlock Text="启动游戏" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+							
+						</StackPanel>
+						<TextBlock x:Name="ShowName" Text="当前游戏:" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-10,0,0"/>
+					</StackPanel>
+				</Button.Content>
+			</Button>
+		</Grid>
+
 	</Grid>
 </UserControl>

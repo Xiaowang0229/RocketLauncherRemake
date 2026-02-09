@@ -13,6 +13,7 @@ namespace RocketLauncherRemake.Utils
         public static string Version = "4.0.0-Alpha.3";
         public static string ShowVersion = $"版本:{Version}";
         public static CancellationTokenSource UpdateCTS = new CancellationTokenSource();
+        public static int GameIndex;
     }
     public class Update
     {

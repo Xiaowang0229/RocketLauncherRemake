@@ -126,7 +126,7 @@
 					<HyperlinkButton Content="Avalonia.Diagnostics" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Fonts.Inter" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Themes.Fluent" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
-					<HyperlinkButton Content="FFME.Avalonia" Click="Url_Click" Tag="https://github.com/4gsim/ffmediaelement"/>
+					<HyperlinkButton Content="FFmpegView.Avalonia" Click="Url_Click" Tag="https://github.com/dove-team/FFmpegView"/>
 					<HyperlinkButton Content="FluentAvaloniaUI (本程序所使用的UI)" Click="Url_Click" Tag="https://github.com/amwx/FluentAvalonia"/>
 					<HyperlinkButton Content="FluentIcons.Avalonia.Fluent" Click="Url_Click" Tag="https://github.com/davidxuang/FluentIcons"/>
 					<HyperlinkButton Content="Hardcodet.Notifyicon.Wpf" Click="Url_Click" Tag="https://github.com/hardcodet/wpf-notifyicon"/>
