@@ -33,6 +33,7 @@ public partial class LaunchPage : UserControl
         GameIndex = Variables.GameIndex;
         var gi = config.GameInfos[GameIndex];
         Title.Text = gi.MainTitle;
+        Title.FontFamily = new Avalonia.Media.FontFamily(gi.MaintitleFontName.Source);
         Title.Foreground = config.GameInfos[GameIndex].MainTitleFontColor.ToAvaloniaBrush() ;
         ShowName.Text = $"µ±«∞”Œœ∑:{gi.ShowName}";
         if (File.Exists($"{Variables.BackgroundPath}\\{config.GameInfos[GameIndex].HashCode}\\Background.mp4"))
