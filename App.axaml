@@ -10,5 +10,6 @@
 		<sty:FluentAvaloniaTheme    PreferSystemTheme="True"
                                     PreferUserAccentColor="False"
 		                            CustomAccentColor="#005A9E"/>
+		
 	</Application.Styles>
 </Application>

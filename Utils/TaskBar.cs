@@ -53,7 +53,7 @@ namespace RocketLauncherRemake.Utils
                 win.Show();
                 if (currentPage is LaunchPage launchpage)
                 {
-                    if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[launchpage.TabIndex].HashCode}\\Background.mp4"))
+                    if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[Variables.GameIndex].HashCode}\\Background.mp4"))
                     {
                         launchpage.BackgroundImageVisible(false);
                         launchpage.BackgroundVideoVisible(true);
@@ -95,7 +95,7 @@ namespace RocketLauncherRemake.Utils
                     win.Topmost = false;
                     if (currentPage is LaunchPage launchpage)
                     {
-                        if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[launchpage.TabIndex].HashCode}\\Background.mp4"))
+                        if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[Variables.GameIndex].HashCode}\\Background.mp4"))
                         {
                             launchpage.BackgroundImageVisible(false);
                             launchpage.BackgroundVideoVisible(true);
@@ -107,7 +107,7 @@ namespace RocketLauncherRemake.Utils
                 {
                     if (currentPage is LaunchPage launchpage)
                     {
-                        if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[launchpage.TabIndex].HashCode}\\Background.mp4"))
+                        if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[Variables.GameIndex].HashCode}\\Background.mp4"))
                         {
                             launchpage.BackgroundImageVisible(false);
                             launchpage.BackgroundVideoVisible(true);
@@ -194,7 +194,7 @@ namespace RocketLauncherRemake.Utils
                 win.WindowState = Avalonia.Controls.WindowState.Normal;
                 if (currentPage is LaunchPage launchpage)
                 {
-                    if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[launchpage.TabIndex].HashCode}\\Background.mp4"))
+                    if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[Variables.GameIndex].HashCode}\\Background.mp4"))
                     {
                         launchpage.BackgroundImageVisible(false);
                         launchpage.BackgroundVideoVisible(true);

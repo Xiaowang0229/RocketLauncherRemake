@@ -8,6 +8,10 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
+
+//using System.Windows;
+using Xiaowang0229.JsonLibrary;
 
 namespace RocketLauncherRemake;
 
@@ -40,15 +44,38 @@ public partial class LaunchPage : UserControl
             BackgroundImage.IsVisible = true;
             BackgroundImage.Source = await ImageIconHelper.LoadFromFileAsync($"{Variables.BackgroundPath}\\{config.GameInfos[GameIndex].HashCode}\\Background.png");
         }
-
-        /*BackgroundVideo.MediaFailed += (s, e) =>
+        if (!(File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[GameIndex].HashCode}\\Background.png")) && !(File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[GameIndex].HashCode}\\Background.mp4")))
         {
-            System.Windows.MessageBox.Show($"{e.ErrorException}");
-        };
-        BackgroundVideo.Open(new System.Uri("C:\\Users\\wangj\\Videos\\【补档】858路-百鬼夜行终将被孤勇者征服.mp4",System.UriKind.Absolute));
-        await BackgroundVideo.Play();*/
+            try
+            {
+                BackgroundVideo.Stop();
 
-        
+                BackgroundVideo.IsVisible = false;
+                BackgroundImage.IsVisible = false;
+            }
+            catch { }
+        }
+        if (Variables.GameProcessStatus[GameIndex])
+        {
+            LaunchTile.Tag = "false";
+            ChangeStartStopStatus(true);
+
+
+            await GameController.WaitMonitingGameExitAsync(GameIndex);
+
+
+
+            ChangeStartStopStatus(false);
+            config = Json.ReadJson<MainConfig>(Variables.Configpath);
+
+        }
+
+        else if (Variables.GameProcessStatus[GameIndex] == false)
+        {
+
+            ChangeStartStopStatus(false);
+        }
+
     }
     public void BackgroundImageVisible(bool value)
     {
@@ -57,24 +84,89 @@ public partial class LaunchPage : UserControl
 
     public void BackgroundVideoVisible(bool value)
     {
-        //BackgroundVideo.IsVisible = value;
+        BackgroundVideo.IsVisible = value;
     }
 
     public void BackgroundVideoPlayStop(bool value)
     {
         if(value)
         {
+            BackgroundVideo.Play();
+            
+        }
+        else
+        {
+            BackgroundVideo.Pause();
+        }
+    }
 
+    private async void Background_MediaEnded(object sender, EventArgs e)
+    {
+        BackgroundVideo.Pause();
+        BackgroundVideo.Seek(0.0f);
+        BackgroundVideo.Play();
+    }
+
+    private async void NewLaunchTile_Click(object sender, RoutedEventArgs e)
+    {
+        if (LaunchTile.Tag == "true")//处理结束逻辑
+        {
+
+            var proc = Variables.GameProcess[GameIndex];
+            proc.Kill();
+            ChangeStartStopStatus(false);
+            config = Json.ReadJson<MainConfig>(Variables.Configpath);
+        }
+        else if (LaunchTile.Tag == "false")//处理开始逻辑
+        {
+            try
+            {
+                ChangeStartStopStatus(true);
+                if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[GameIndex].HashCode}\\Background.mp4"))
+                {
+                    BackgroundVideo.Pause();
+                }
+                GameController.StartMonitingGameStatus(GameIndex);
+                await GameController.WaitMonitingGameExitAsync(GameIndex);
+                if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[GameIndex].HashCode}\\Background.mp4"))
+                {
+                    BackgroundVideo.Play();
+                }
+
+                ChangeStartStopStatus(false);
+            }
+            catch (InvalidOperationException)
+            {
+
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
+            /*catch (Exception ex)
+            {
+                Variables._MainWindow.ShowMessageAsync("游戏启动时错误", $"{ex.Message}");
+            }*/
+        }
+
+    }
+
+    private async void ChangeStartStopStatus(bool ChangeMode)
+    {
+        config = Json.ReadJson<MainConfig>(Variables.Configpath);
+        if (ChangeMode)
+        {
+
+            LaunchTitle.Text = "结束游戏";
+            LaunchTile.Tag = "true";
+            await Task.Delay(TimeSpan.FromSeconds(0.5));
         }
         else
         {
 
+            LaunchTitle.Text = "开始游戏";
+            LaunchTile.Tag = "false";
         }
-    }
-
-    private void Background_MediaEnded(object sender, EventArgs e)
-    {
-
     }
 
 

@@ -23,7 +23,7 @@ namespace RocketLauncherRemake.Utils
     {
         public async static void StartMonitingGameStatus(int index)
         {
-            ToastNotificationManagerCompat.History.Clear();
+            
             var config = Json.ReadJson<MainConfig>(Variables.Configpath);
             var proc = Variables.GameProcess[index];
             proc.Start();
@@ -70,6 +70,7 @@ namespace RocketLauncherRemake.Utils
         }
         private static void StopMonitingGameStatus(int index)
         {
+            Variables._MainWindow.RootNavi.SelectedItem = Variables._MainWindow.RootNavi.MenuItems[index];
             var win = Variables._MainWindow;
             var config = Json.ReadJson<MainConfig>(Variables.Configpath);
             Variables.PlayingTimeRecorder[index].Stop();
@@ -77,23 +78,11 @@ namespace RocketLauncherRemake.Utils
             var totaltime = config.GameInfos[index].GamePlayedMinutes + time;
             config.GameInfos[index].GamePlayedMinutes = totaltime;
             Json.WriteJson(Variables.Configpath, config);
-            if (Variables.GameProcess[index].ExitCode == 0)
-            {
-                var toast0 = new ToastContentBuilder().AddText("程序已结束").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode} (正常退出)").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
+            
+                var toast0 = new ToastContentBuilder().AddText("程序已结束").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode} ").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
                 toast0.Show();
 
-            }
-            else if (Variables.GameProcess[index].ExitCode == -1)
-            {
-                var toast0 = new ToastContentBuilder().AddText("程序已结束").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode} (强制退出)").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
-                toast0.Show();
-            }
-            else
-            {
 
-                var toast0 = new ToastContentBuilder().AddText("程序已结束").AddText($"程序名：{config.GameInfos[index].ShowName}").AddText($"游戏时长：{time} 分钟,退出码：{Variables.GameProcess[index].ExitCode} (可能为异常退出)").AddAppLogoOverride(new Uri(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Icon.png"));
-                toast0.Show();
-            }
 
 
 
@@ -113,7 +102,7 @@ namespace RocketLauncherRemake.Utils
                 {
                     //launchpage.NewGameTimeBlock.Content = $"游戏总时长：{totaltime}分钟";
                 }
-                if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[launchpage.TabIndex].HashCode}\\Background.mp4"))
+                if (File.Exists(Environment.CurrentDirectory + $"\\Backgrounds\\{config.GameInfos[index].HashCode}\\Background.mp4"))
                 {
                     launchpage.BackgroundImageVisible(false);
                     launchpage.BackgroundVideoVisible(true);

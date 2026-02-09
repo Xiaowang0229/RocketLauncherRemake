@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using FluentAvalonia.UI.Windowing;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Ookii.Dialogs.Wpf;
 using RocketLauncherRemake.Utils;
 using System;
@@ -54,9 +55,10 @@ namespace RocketLauncherRemake
             {
                 Variables.config = Json.ReadJson<MainConfig>(Variables.Configpath);
             }
-            RegisterGlobalExceptionHandlers();
 
-            
+            RegisterGlobalExceptionHandlers();
+            ToastNotificationManagerCompat.History.Clear();
+
             Variables.VersionLog = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.LocalLog.md");
             Variables.EULAString = FileHelper.ReadEmbeddedMarkdown("RocketLauncherRemake.EULA.md");
 

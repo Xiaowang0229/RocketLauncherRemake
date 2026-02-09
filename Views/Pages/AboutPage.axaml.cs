@@ -10,6 +10,7 @@ public partial class AboutPage : UserControl
     public AboutPage()
     {
         InitializeComponent();
+        Updatelog.Markdown = Variables.VersionLog;
     }
 
     private void RepoUrl_Click(object sender,RoutedEventArgs e)

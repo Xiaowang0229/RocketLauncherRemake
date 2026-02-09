@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:md="https://github.com/whistyun/Markdown.Avalonia"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ui="using:FluentAvalonia.UI.Controls"
 			 xmlns:local="clr-namespace:RocketLauncherRemake.Utils;assembly=RocketLauncherRemake"
@@ -73,7 +74,11 @@
 						<Button Width="120" Click="ChkUpd_Click" Content="检测更新" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
 					</Grid>
-
+					<Separator/>
+					<StackPanel Margin="0,0,0,5">
+						<TextBlock Text="更新日志" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,5"/>
+						<md:MarkdownScrollViewer x:Name="Updatelog" xml:space="preserve" />
+					</StackPanel>
 				</StackPanel>
 
 			</ui:SettingsExpander>
@@ -82,7 +87,7 @@
 					<Grid>
 						<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 							<ic:FluentIcon Icon="Share" Height="32" Width="32" FontSize="32" Margin="10"/>
-							<TextBlock Text="访问 Github 仓库" VerticalAlignment="Center" Margin="10,0,0,0" />
+							<TextBlock Text="相关链接" VerticalAlignment="Center" Margin="10,0,0,0" />
 						</StackPanel>
 
 					</Grid>
@@ -123,17 +128,14 @@
 				<StackPanel Margin="5">
 					<HyperlinkButton Content="Avalonia" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Desktop" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
-					<HyperlinkButton Content="Avalonia.Diagnostics" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
-					<HyperlinkButton Content="Avalonia.Fonts.Inter" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Themes.Fluent" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
-					<HyperlinkButton Content="FFmpegView.Avalonia" Click="Url_Click" Tag="https://github.com/dove-team/FFmpegView"/>
+					<HyperlinkButton Content="Avamark" Click="Url_Click" Tag="https://github.com/ArchLeaders/AvaMark"/>
+					<HyperlinkButton Content="FFmpegVideoPlayer.Avalonia" Click="Url_Click" Tag="https://github.com/jojomondag/Avalonia.VlcVideoPlayer"/>
 					<HyperlinkButton Content="FluentAvaloniaUI (本程序所使用的UI)" Click="Url_Click" Tag="https://github.com/amwx/FluentAvalonia"/>
 					<HyperlinkButton Content="FluentIcons.Avalonia.Fluent" Click="Url_Click" Tag="https://github.com/davidxuang/FluentIcons"/>
 					<HyperlinkButton Content="Hardcodet.Notifyicon.Wpf" Click="Url_Click" Tag="https://github.com/hardcodet/wpf-notifyicon"/>
-					<HyperlinkButton Content="Markdig" Click="Url_Click" Tag="https://github.com/xoofx/markdig"/>
 					<HyperlinkButton Content="Microsoft.Toolkit.Uwp.Notifications" Click="Url_Click" Tag="https://github.com/CommunityToolkit/WindowsCommunityToolkit/tree/main/Microsoft.Toolkit.Uwp.Notifications"/>
 					<HyperlinkButton Content="Ookii.Dialogs.Wpf" Click="Url_Click" Tag="https://github.com/ookii-dialogs/ookii-dialogs-wpf"/>
-					<HyperlinkButton Content="System.Drawing.Common" Click="Url_Click" Tag="https://github.com/dotnet/dotnet"/>
 				</StackPanel>
 			</ui:SettingsExpander>
 

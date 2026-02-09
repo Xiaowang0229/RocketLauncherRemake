@@ -35,7 +35,7 @@
 			<Border Background="#80FFFFFF"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 			<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 				<ui:ProgressRing Height="64" Width="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-				<TextBlock Text="正在配置文件,请稍候..." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				<TextBlock Text="正在加载,请稍候..." HorizontalAlignment="Center" VerticalAlignment="Center"/>
 			</StackPanel>
 		</Grid>
 	</Grid>
