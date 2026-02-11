@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using FluentAvalonia.UI.Windowing;
 using Ookii.Dialogs.Wpf;
@@ -30,8 +31,9 @@ namespace RocketLauncherRemake
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-
+                desktop.ShutdownRequested += App_OnClosing;
                 desktop.MainWindow = OnLaunch();
+                
             }
 
             base.OnFrameworkInitializationCompleted();
@@ -294,6 +296,11 @@ namespace RocketLauncherRemake
                 FileName = "https://github.com/Xiaowang0229/RocketLauncherRemake/issues/new",
                 UseShellExecute = true
             });
+        }
+
+        private void App_OnClosing(object? sender,ShutdownRequestedEventArgs e)
+        {
+            TaskBar.KillTaskBar();
         }
     }
 }

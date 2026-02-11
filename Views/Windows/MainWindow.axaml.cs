@@ -18,8 +18,9 @@ namespace RocketLauncherRemake
             InitializeComponent();
             this.TitleBar.Height = 48;
             this.Icon = ImageIconHelper.ToAvaloniaImageSource(AppResource.ApplicationImage);
+            this.ExtendClientAreaToDecorationsHint = true;
             this.TitleBar.ExtendsContentIntoTitleBar = true;
-
+            TitleBarIcon.Source = ImageIconHelper.ToAvaloniaImageSource(AppResource.ApplicationImage);
 
 
         }
@@ -51,6 +52,14 @@ namespace RocketLauncherRemake
         private void RootNavi_SelectionChanged(object sender, NavigationViewSelectionChangedEventArgs e)
         {
             config = JsonConfig.ReadConfig();
+            if (RootNavi.SelectedItem == RootNavi.FooterMenuItems[0])
+            {
+                RootFrame.Navigate(typeof(SettingsPage));
+            }
+            else if (RootNavi.SelectedItem == RootNavi.FooterMenuItems[1])
+            {
+                RootFrame.Navigate(typeof(AboutPage));
+            }
             for (int i = 0; i < RootNavi.MenuItems.Count;i++)
             {
                 if(RootNavi.SelectedItem == RootNavi.MenuItems[i])
@@ -60,14 +69,7 @@ namespace RocketLauncherRemake
                     break;
                 }
             }
-            if (RootNavi.SelectedItem == RootNavi.FooterMenuItems[0])
-            {
-                RootFrame.Navigate(typeof(SettingsPage));
-            }
-            else if (RootNavi.SelectedItem == RootNavi.FooterMenuItems[1])
-            {
-                RootFrame.Navigate(typeof(AboutPage));
-            }
+            
         }
 
         private void Frame_Pre_Navigating(object sender, NavigationEventArgs e)

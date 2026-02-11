@@ -15,7 +15,7 @@
         Title="RocketLauncher">
 	<Grid>
 		
-		<ui:NavigationView Margin="0,-3,0,0" x:Name="RootNavi" IsBackButtonVisible="false" SelectionChanged="RootNavi_SelectionChanged"  IsSettingsVisible="False" IsBackEnabled="False" ExpandedModeThresholdWidth="21474836">
+		<ui:NavigationView x:Name="RootNavi" IsBackButtonVisible="True" SelectionChanged="RootNavi_SelectionChanged"  IsSettingsVisible="False" IsBackEnabled="False" ExpandedModeThresholdWidth="21474836">
 			<ui:NavigationView.FooterMenuItems>
 				<ui:NavigationViewItem Content="设置">
 					<ui:NavigationViewItem.IconSource>
@@ -40,6 +40,6 @@
 			</StackPanel>
 		</Grid>
 		<ui:InfoBar Margin="60,10,10,10" x:Name="RootInfoBar" Background="{DynamicResource SolidBackgroundFillColorBaseBrush}"  Severity="Informational" Title="提示"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  IsClosable="True" IsVisible="True"/>
-		
+		<Image Height="24" Width="24" Margin="12" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="TitleBarIcon"/>
 	</Grid>
 </wnd:AppWindow>

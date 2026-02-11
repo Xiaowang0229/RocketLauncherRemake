@@ -11,6 +11,8 @@ public partial class AboutPage : UserControl
     {
         InitializeComponent();
         Updatelog.Markdown = Variables.VersionLog;
+        EULA.Markdown = Variables.EULAString;
+        EULA.Width = EULAExpander.Width;
     }
 
     private void RepoUrl_Click(object sender,RoutedEventArgs e)

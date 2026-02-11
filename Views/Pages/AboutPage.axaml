@@ -129,30 +129,32 @@
 					<HyperlinkButton Content="Avalonia" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Desktop" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
 					<HyperlinkButton Content="Avalonia.Themes.Fluent" Click="Url_Click" Tag="https://github.com/AvaloniaUI/Avalonia"/>
-					<HyperlinkButton Content="Avamark" Click="Url_Click" Tag="https://github.com/ArchLeaders/AvaMark"/>
+					<HyperlinkButton Content="Markdown.Avalonia" Click="Url_Click" Tag="https://github.com/whistyun/Markdown.Avalonia"/>
 					<HyperlinkButton Content="FFmpegVideoPlayer.Avalonia" Click="Url_Click" Tag="https://github.com/jojomondag/Avalonia.VlcVideoPlayer"/>
 					<HyperlinkButton Content="FluentAvaloniaUI (本程序所使用的UI)" Click="Url_Click" Tag="https://github.com/amwx/FluentAvalonia"/>
 					<HyperlinkButton Content="FluentIcons.Avalonia.Fluent" Click="Url_Click" Tag="https://github.com/davidxuang/FluentIcons"/>
 					<HyperlinkButton Content="Hardcodet.Notifyicon.Wpf" Click="Url_Click" Tag="https://github.com/hardcodet/wpf-notifyicon"/>
-					<HyperlinkButton Content="Microsoft.Toolkit.Uwp.Notifications" Click="Url_Click" Tag="https://github.com/CommunityToolkit/WindowsCommunityToolkit/tree/main/Microsoft.Toolkit.Uwp.Notifications"/>
 					<HyperlinkButton Content="Ookii.Dialogs.Wpf" Click="Url_Click" Tag="https://github.com/ookii-dialogs/ookii-dialogs-wpf"/>
+					<TextBlock Text="由衷向以上开发者们致以崇高的谢意!"/>
 				</StackPanel>
 			</ui:SettingsExpander>
 
-		<ui:SettingsExpander Margin="0,5,0,0">
+		<ui:SettingsExpander Margin="0,5,0,0" x:Name="EULAExpander">
 			<ui:SettingsExpander.Header>
 				<Grid>
 					<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-						<ic:FluentIcon Icon="PeopleCommunity" Height="32" Width="32" FontSize="32" Margin="10"/>
-						<TextBlock Text="鸣谢名单" VerticalAlignment="Center" Margin="10,0,0,0" />
+						<ic:FluentIcon Icon="Document" Height="32" Width="32" FontSize="32" Margin="10"/>
+						<TextBlock Text="许可协议与隐私政策" VerticalAlignment="Center" Margin="10,0,0,0" />
+						
 					</StackPanel>
 
 				</Grid>
 
 			</ui:SettingsExpander.Header>
 			<StackPanel Margin="5" Orientation="Horizontal">
-				<HyperlinkButton Content="Xiaowang0229" Click="Url_Click" Tag="https://github.com/Xiaowang0229"/>
-				<HyperlinkButton Content="IsHuaMouRen" Click="Url_Click" Tag="https://github.com/IsHuaMouRen"/>
+				<ScrollViewer>
+					<md:MarkdownScrollViewer x:Name="EULA" xml:space="preserve" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+				</ScrollViewer>
 				
 			</StackPanel>
 		</ui:SettingsExpander>
